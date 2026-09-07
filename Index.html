@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Share your location</h2>
+<button onclick="share()">Share Location</button>
+
+<script>
+function share() {
+  navigator.geolocation.getCurrentPosition(
+    p => {
+      const url =
+        "https://www.google.com/maps?q=" +
+        p.coords.latitude + "," + p.coords.longitude;
+      window.location.href = url;
+    },
+    () => alert("Location permission was denied.")
+  );
+}
+</script>
+</body>
+</html>
